@@ -42,6 +42,9 @@ This script will handle the necessary setup steps, such as installing dependenci
 
 6. **Access the project:**  After the initialization process is complete, you should be able to access the project by opening a web browser and visiting the provided URL (usually `http://localhost`, depending on the configuration).
 
+## News Sources
+Three news sources were utilized in the project: News API, Guardian API, and New York Times API. These sources provided access to a wide range of up-to-date news articles across various categories.
+
 ## Project Structure
 A cron job is a scheduled task that runs daily and fetches news from specific sources, storing them in a database. It then displays the news to the user based on their interests. You can find this command in the "console/commands" folder. The classes that combine the news sources can be accessed in the "App\News" folder. This application uses Laravel as the backend framework and React as the frontend framework, with Vite used as the asset bundling tool.
 

@@ -30,4 +30,4 @@ docker exec -i backend composer dump-autoload
 docker exec -i backend php artisan migrate:fresh --seed
 docker exec -i backend chmod o+w ./storage/ -R
 
-docker exec -i backend php artisan news:fetch
+docker exec -i backend php artisan news:fetchDaily --dateRange 20

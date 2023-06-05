@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        schedule->command('news:fetch 2')->daily();
+        schedule->command('news:fetchDaily --dateRange 2')->daily();
     }
 
     /**

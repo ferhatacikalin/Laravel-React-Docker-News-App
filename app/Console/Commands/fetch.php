@@ -78,7 +78,7 @@ class fetch extends Command
                 $newsApiArticles = $newsData['newsApiData'];
                 $guardianArticles = $newsData['guardianData'];
                 $nyTimesArticles = $newsData['newYorkTimesData'];
-                dd($newsApiArticles, $guardianArticles, $nyTimesArticles);
+
 
                 // Process the articles using the NewsProcessor class
                 $processedArticles = NewsProcessor::processArticles($newsApiArticles, $guardianArticles, $nyTimesArticles);

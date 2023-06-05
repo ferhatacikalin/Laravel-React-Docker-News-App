@@ -12,7 +12,8 @@ git clone <repository_url>
 
 
 Replace `<repository_url>` with the actual URL of the repository. 
-3. ** file:**  Create a `.env` file by copying the provided `.env.example` file. Use the following command:
+
+3. Create a `.env` file by copying the provided `.env.example` file. Use the following command:
 
 ```bash
 

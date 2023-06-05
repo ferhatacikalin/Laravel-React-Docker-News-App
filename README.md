@@ -1,4 +1,5 @@
 
+This project is a news aggregator website with user authentication, article search and filtering, personalized news feed, mobile-responsive design, built using Laravel and React.js, and Dockerized for easy deployment.
 
 ## Usage
 1. **Install Docker:**  Make sure you have Docker installed on your machine. You can download and install Docker from the [official website](https://www.docker.com/get-started) . 

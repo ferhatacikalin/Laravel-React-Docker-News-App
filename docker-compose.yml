@@ -1,0 +1,70 @@
+# ! Docker-Compose Specification
+version: '3.8'
+
+# ! Define Project Network
+networks:
+  app-network:
+
+# ! Define Project Volume
+volumes:
+  mysql-data:
+
+# ? App Stack
+services:
+  # ? Bring up Nginx After Backend and Link Volumes
+  webserver:
+    image: nginx:1.21-alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT}"
+    volumes:
+      - ./:/var/www
+      - .docker/nginx:/etc/nginx/conf.d
+    networks:
+      - app-network
+
+  database:
+    image: mysql:8
+    container_name: database
+    restart: unless-stopped
+    tty: true
+    ports:
+        - "3306:3306"
+    environment:
+        - MYSQL_USER=${DB_USERNAME}
+        - MYSQL_PASSWORD=${DB_PASSWORD}
+        - MYSQL_DATABASE=${DB_DATABASE}
+        - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    volumes:
+        - mysql-data:/var/lib/mysql
+    networks:
+        - app-network
+
+  # ? Build, Bring up Backend Container
+  backend:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: backend
+    volumes:
+      - .:/var/www
+      - .docker/php-fpm/php.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+  # ? Bring Up Client UI
+  client:
+    build:
+      context: .
+      dockerfile: npm.dockerfile
+    container_name: client
+    tty: true
+    volumes:
+      - ./:/app
+    depends_on:
+      - backend
+    networks:
+      - app-network

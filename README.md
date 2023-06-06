@@ -48,7 +48,7 @@ Three news sources were utilized in the project: News API, Guardian API, and New
 ## Project Structure
 A cron job is a scheduled task that runs daily and fetches news from specific sources, storing them in a database. It then displays the news to the user based on their interests. You can find this command in the "console/commands" folder. The classes that combine the news sources can be accessed in the "App\News" folder. This application uses Laravel as the backend framework and React as the frontend framework, with Vite used as the asset bundling tool.
 
-## Dockerization
+## Dockerizing
 The provided Docker Compose file defines a basic configuration for an application stack. It includes services for a web server (Nginx), a database (MySQL), a backend (PHP), and a client user interface. The file specifies the container images, container names, restart policies, port mappings, volumes, dependencies, and networks for each service. It allows the different components of the application to work together in a containerized environment.
 
 ## Other Laravel Projects
